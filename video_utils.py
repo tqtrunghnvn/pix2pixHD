@@ -68,7 +68,8 @@ def extract_frames_from_video(video_path, frame_dir, output_shape=(1280, 736), f
     ex: 1920x1080 --> 1308x736 --> 1280x736
     """
     width, height = output_shape
-    command = """ffmpeg -v %d -i %s -q:v 2 -vf "scale=iw*%d/ih:%d, crop=%d:%d" %s/frame-%%06d.jpg -hide_banner""" % (
+#    command = """ffmpeg -v %d -i %s -q:v 2 -vf "scale=iw*%d/ih:%d, crop=%d:%d" %s/frame-%%06d.jpg -hide_banner""" % (
+    command = """ffmpeg -v %d -i %s -r 10 -q:v 2 -vf "scale=iw*%d/ih:%d, crop=%d:%d" %s/frame-%%06d.jpg -hide_banner""" % (
         ffmpeg_verbosity,
         video_path,
         height,

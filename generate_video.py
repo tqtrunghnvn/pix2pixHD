@@ -100,6 +100,8 @@ video_path = output_dir + "/" + video_id + ".mp4"
 while os.path.isfile(video_path):
     video_path = video_path[:-4] + "-.mp4"
 
+print(frame_dir)
+
 video_utils.video_from_frame_directory(
     frame_dir, 
     video_path, 
